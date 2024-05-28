@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://xpddd1nh0fxm"]
+
+[ext_resource type="Script" path="res://main.cs" id="1_4fvr5"]
+[ext_resource type="PackedScene" uid="uid://bh2riwvkv86by" path="res://Scenes/Boat.tscn" id="1_7tml3"]
+[ext_resource type="PackedScene" uid="uid://bfb6q4oae367w" path="res://gun.tscn" id="3_dq3rk"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_4fvr5")
+
+[node name="Boat" parent="." instance=ExtResource("1_7tml3")]
+position = Vector2(66, 86)
+
+[node name="Boat2" parent="." instance=ExtResource("1_7tml3")]
+position = Vector2(657, 412)
+
+[node name="Gun" parent="." instance=ExtResource("3_dq3rk")]
+position = Vector2(59, 51)

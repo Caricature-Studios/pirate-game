@@ -1,11 +1,15 @@
 using Godot;
 using System;
 
-public partial class Boat : Area2D
-{
-	public int speed = 400;
+public partial class Boat : Area2D {
+	[Export]
+	public float speed { get; set; } = 400;
 	Vector2 velocity = Vector2.Zero;
 	Vector2 destination = Vector2.Zero;
+	[Export]
+	public float health { get; set; } = 50;
+	[Export]
+	public float defense { get; set; } = 2;
 	bool selected = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -21,8 +25,6 @@ public partial class Boat : Area2D
 		boatSprite.Play();
 		if (Input.IsActionPressed("click")){
 			var clickLocation = GetViewport().GetMousePosition();
-			GD.Print("click:");
-			GD.Print(clickLocation);
 			if(selected == false && clickLocation.X < Position.X + 100 && clickLocation.X > Position.X - 100 && clickLocation.Y < Position.Y + 100 && clickLocation.Y > Position.Y - 100){
 				selected = true;
 				boatSprite.Animation = "Selected";
@@ -39,18 +41,29 @@ public partial class Boat : Area2D
 				if (velocity.X < 0){
 					Rotation += (float)3.14;
 				}
+				selected = false;
+				boatSprite.Animation = "Unselected";
 			}
 		}
 		
 		velocity = velocity.Normalized() * speed;
 		Position += velocity * (float)delta;	
 		
-		if (velocity != Vector2.Zero && Position.X < destination.X + 20 && Position.X > destination.X - 20 && Position.Y < destination.Y + 20 && Position.Y > destination.Y - 20) {
+		if (velocity != Vector2.Zero && Position.X < destination.X + 50 && Position.X > destination.X - 50 && Position.Y < destination.Y + 50 && Position.Y > destination.Y - 50) {
 			velocity -= velocity;
-			GD.Print("selected:");
-			GD.Print(selected);
-			GD.Print("position:");
-			GD.Print(Position);
+		}
+		
+		if (health < 0) {
+			QueueFree();
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
