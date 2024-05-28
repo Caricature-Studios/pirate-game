@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://6m8c76ulja7d"]
+
+[ext_resource type="Texture2D" uid="uid://eq3ts2hvk5e2" path="res://Assets/maps/island.PNG" id="1_3v3hl"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_s32ba"]
+vertices = PackedVector2Array(30, 31, 442, 31, 385, 57, 30, 616, 312, 213, 395, 144, 401, 157, 392, 337, 452, 309, 494, 342, 320, 315, 1122, 616, 582, 354, 622, 301, 660, 287, 767, 284, 1122, 31, 814, 170, 759, 77, 695, 35, 618, 59, 593, 39, 585, 31)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4), PackedInt32Array(5, 6, 4), PackedInt32Array(7, 8, 9), PackedInt32Array(2, 5, 4), PackedInt32Array(3, 4, 10), PackedInt32Array(11, 3, 10, 7), PackedInt32Array(11, 7, 9, 12), PackedInt32Array(11, 12, 13, 14, 15), PackedInt32Array(16, 11, 15, 17), PackedInt32Array(16, 17, 18), PackedInt32Array(19, 20, 21, 22), PackedInt32Array(19, 22, 16), PackedInt32Array(16, 18, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1152, 1, 1152, 646, 0, 647, 0, 1)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 30.0
+
+[node name="test_map" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_s32ba")
+
+[node name="island" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/island"]
+position = Vector2(557, 182)
+texture = ExtResource("1_3v3hl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NavigationRegion2D/island"]
+polygon = PackedVector2Array(417, 75, 500, 38, 548, 36, 574, 63, 612, 93, 691, 68, 737, 98, 781, 172, 747, 255, 656, 258, 604, 276, 569, 322, 506, 313, 458, 275, 390, 305, 348, 292, 343, 229, 441, 169, 424, 135)

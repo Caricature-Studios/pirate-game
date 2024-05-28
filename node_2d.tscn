@@ -1,17 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkqhjvqxgx7ap"]
+[gd_scene load_steps=4 format=3 uid="uid://dkqhjvqxgx7ap"]
 
-[ext_resource type="Texture2D" uid="uid://dgosn03p6tswx" path="res://Assets/maps/map concept.png" id="1_333e1"]
-[ext_resource type="Texture2D" uid="uid://cyeeitjrag736" path="res://Assets/boats/boat concept.png" id="2_pn4et"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_s32ba"]
-vertices = PackedVector2Array(1142, 636, 10, 636, 10, 11, 1142, 11)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1152, 1, 1152, 646, 0, 647, 0, 1)])
-source_geometry_group_name = &"navigation_polygon_source_group"
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jb78"]
-radius = 32.0
-height = 130.0
+[ext_resource type="Texture2D" uid="uid://b2wbo778ktqi8" path="res://Assets/maps/water.png" id="1_hjkfl"]
+[ext_resource type="PackedScene" uid="uid://6m8c76ulja7d" path="res://Scenes/test_map.tscn" id="2_l22pw"]
+[ext_resource type="PackedScene" uid="uid://bds1f0jr721g6" path="res://Entities/boat.tscn" id="3_scd41"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -21,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -29,23 +20,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_333e1")
+texture = ExtResource("1_hjkfl")
 expand_mode = 2
 
-[node name="Scene" type="Node2D" parent="."]
-visible = false
+[node name="test_map" parent="." instance=ExtResource("2_l22pw")]
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Scene"]
-navigation_polygon = SubResource("NavigationPolygon_s32ba")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_pn4et")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_8jb78")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+[node name="boat" parent="." instance=ExtResource("3_scd41")]
