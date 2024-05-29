@@ -8,8 +8,8 @@ public partial class Boat : Area2D {
 	public float health { get; set; } = 50;
 	[Export]
 	public float defense { get; set; } = 2;
-	Vector2 velocity = Vector2.Zero;
-	Vector2 destination = Vector2.Zero;
+	public Vector2 velocity = Vector2.Zero;
+	public Vector2 destination = Vector2.Zero;
 	bool selected = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -49,7 +49,7 @@ public partial class Boat : Area2D {
 			y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
 		);
 		
-		if (velocity != Vector2.Zero && Position.X < destination.X + 50 && Position.X > destination.X - 50 && Position.Y < destination.Y + 50 && Position.Y > destination.Y - 50) {
+		if (velocity != Vector2.Zero && Position.DistanceTo(destination) < 50) {
 			velocity -= velocity;
 		}
 		

@@ -10,12 +10,13 @@ script = ExtResource("1_ksu3l")
 
 [node name="Gun_Sprite" type="Sprite2D" parent="."]
 position = Vector2(1.00001, -0.999992)
-scale = Vector2(0.24, 0.293333)
+scale = Vector2(4, 4.881)
 texture = ExtResource("1_ydihq")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Range" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_0kyqd")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

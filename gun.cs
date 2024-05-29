@@ -4,7 +4,7 @@ using System;
 public partial class gun : Area2D
 {
 	[Export]
-	public int range { get; set;} = 500;
+	public int range { get; set;} = 200;
 	[Export]
 	public int might { get; set;} = 10;
 	[Export]
@@ -16,6 +16,8 @@ public partial class gun : Area2D
 	bool cooldown = false;
 	bool shooting = false;
 	Vector2 targetPosition;
+	Vector2 targetVelocity;
+	Vector2 targetDestination;
 	float targetHealth;
 	float targetDamage;
 	// Called when the node enters the scene tree for the first time.
@@ -32,7 +34,6 @@ public partial class gun : Area2D
 		var rangeCollision = GetNode<CollisionShape2D>("Range");
 		var rangeShape = (CircleShape2D)rangeCollision.Shape;
 		rangeShape.Radius = range;
-		GD.Print(rangeShape.Radius);
 		var bulletScene = GD.Load<PackedScene>("res://Cannonball.tscn");
 		var cannonBall = bulletScene.Instantiate<Cannonball>();
 		cannonBall.bulletDamage = might;
@@ -45,6 +46,11 @@ public partial class gun : Area2D
 			targetHealth -= targetDamage;
 			cooldown = true;
 			cooldownTimer.Start();
+			if(targetPosition.DistanceTo(targetDestination) > 50) {
+				targetPosition += targetVelocity * (float)delta;
+				GD.Print(targetPosition);
+				GD.Print(targetVelocity);
+			}
 		}
 		
 		if(targetHealth <= 0){
@@ -61,6 +67,8 @@ public partial class gun : Area2D
 		targetDamage = might - area.defense;
 		targetHealth = area.health + targetDamage;
 		targetPosition = area.Position;
+		targetVelocity = area.velocity;
+		targetDestination = area.destination;
 		shooting = true;
 	}
 	

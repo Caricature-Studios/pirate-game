@@ -24,15 +24,16 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3q4g"]
-radius = 55.0
-height = 220.0
+radius = 40.0
+height = 84.0
 
 [node name="Boat" type="Area2D"]
-position = Vector2(-2, -4)
+position = Vector2(1, -4)
 script = ExtResource("1_uqdrf")
 metadata/_edit_group_ = true
 
 [node name="Boat_Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4.515, 4.515)
 sprite_frames = SubResource("SpriteFrames_l28ys")
 animation = &"Unselected"
 
