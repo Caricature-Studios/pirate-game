@@ -4,12 +4,12 @@ using System;
 public partial class Boat : Area2D {
 	[Export]
 	public float speed { get; set; } = 400;
-	Vector2 velocity = Vector2.Zero;
-	Vector2 destination = Vector2.Zero;
 	[Export]
 	public float health { get; set; } = 50;
 	[Export]
 	public float defense { get; set; } = 2;
+	Vector2 velocity = Vector2.Zero;
+	Vector2 destination = Vector2.Zero;
 	bool selected = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -31,10 +31,6 @@ public partial class Boat : Area2D {
 			}
 			if(selected == true && (Math.Abs(clickLocation.X - Position.X) > 100 || Math.Abs(clickLocation.Y - Position.Y) > 100)){
 				destination = clickLocation;
-				destination = new Vector2(
-					x: Mathf.Clamp(destination.X, 0, ScreenSize.X),
-					y: Mathf.Clamp(destination.Y, 0, ScreenSize.Y)
-				);
 				velocity.X += (destination.X - Position.X);
 				velocity.Y += (destination.Y - Position.Y);
 				Rotation = (float)Math.Atan(velocity.Y / velocity.X) + (float)1.55;
@@ -48,6 +44,10 @@ public partial class Boat : Area2D {
 		
 		velocity = velocity.Normalized() * speed;
 		Position += velocity * (float)delta;	
+		Position = new Vector2(
+			x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
+			y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
+		);
 		
 		if (velocity != Vector2.Zero && Position.X < destination.X + 50 && Position.X > destination.X - 50 && Position.Y < destination.Y + 50 && Position.Y > destination.Y - 50) {
 			velocity -= velocity;

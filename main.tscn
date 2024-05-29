@@ -8,10 +8,10 @@
 script = ExtResource("1_4fvr5")
 
 [node name="Boat" parent="." instance=ExtResource("1_7tml3")]
-position = Vector2(66, 86)
+position = Vector2(457, 111)
 
 [node name="Boat2" parent="." instance=ExtResource("1_7tml3")]
-position = Vector2(657, 412)
+position = Vector2(1054, 450)
 
 [node name="Gun" parent="." instance=ExtResource("3_dq3rk")]
-position = Vector2(59, 51)
+position = Vector2(188, 90)

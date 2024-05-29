@@ -28,7 +28,7 @@ radius = 55.0
 height = 220.0
 
 [node name="Boat" type="Area2D"]
-position = Vector2(56, 108)
+position = Vector2(-2, -4)
 script = ExtResource("1_uqdrf")
 metadata/_edit_group_ = true
 

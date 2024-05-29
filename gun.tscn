@@ -1,15 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfb6q4oae367w"]
+[gd_scene load_steps=4 format=3 uid="uid://bfb6q4oae367w"]
 
 [ext_resource type="Script" path="res://gun.cs" id="1_ksu3l"]
 [ext_resource type="Texture2D" uid="uid://bep5101vt72yy" path="res://Assets/Temporary Sprites/Gun.png" id="1_ydihq"]
 
-[node name="Gun" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kyqd"]
+
+[node name="Gun" type="Area2D"]
 script = ExtResource("1_ksu3l")
 
 [node name="Gun_Sprite" type="Sprite2D" parent="."]
-position = Vector2(73, 55)
+position = Vector2(1.00001, -0.999992)
+scale = Vector2(0.24, 0.293333)
 texture = ExtResource("1_ydihq")
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Range" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0kyqd")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
