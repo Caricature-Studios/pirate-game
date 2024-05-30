@@ -3,9 +3,11 @@ using System;
 
 public partial class Cannonball : Area2D
 {
-	float speed = 50;
+	float speed = 400;
 	public float bulletDamage;
 	public float range;
+	public float gunRotation;
+	public string owner;
 	bool shot = false;
 	Vector2 initialPosition;
 	public Vector2 velocity;
@@ -16,25 +18,21 @@ public partial class Cannonball : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
-		if (Input.IsActionPressed("click") && shot == false){
-			var clickLocation = GetViewport().GetMousePosition();
-			velocity.X += clickLocation.X - Position.X;
-			velocity.Y += clickLocation.Y - Position.Y;
-			shot = true;
-		}
 		velocity = velocity.Normalized() * speed;
-		Position += velocity;
-		
+		Position += velocity*(float)delta;
 		if(initialPosition.DistanceTo(Position) > range){
 			QueueFree();
 		}
 		
 	}
 	
-	private void _on_area_entered(Boat area){
-		area.health -= (bulletDamage - area.defense);
-		QueueFree();
+	private void _on_area_entered(Area2D area){
+		var isBoat = area.Name.ToString().Contains("Boat");
+		if(isBoat && area.Name != owner) {
+			var boat = (Boat)area;
+			boat.health -= (bulletDamage - boat.defense);
+			QueueFree();
+		}
 	}
 }
 
