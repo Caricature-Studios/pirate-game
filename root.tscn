@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkqhjvqxgx7ap"]
 
 [ext_resource type="Texture2D" uid="uid://b2wbo778ktqi8" path="res://Assets/maps/water.png" id="1_hjkfl"]
-[ext_resource type="PackedScene" uid="uid://6m8c76ulja7d" path="res://Scenes/test_map.tscn" id="2_l22pw"]
-[ext_resource type="PackedScene" uid="uid://bds1f0jr721g6" path="res://Entities/boat.tscn" id="3_scd41"]
+[ext_resource type="PackedScene" uid="uid://6m8c76ulja7d" path="res://Levels/test_map.tscn" id="2_l22pw"]
+[ext_resource type="PackedScene" uid="uid://bds1f0jr721g6" path="res://Entities/main_boat/boat.tscn" id="3_scd41"]
 
 [node name="Root" type="Control"]
 layout_mode = 3

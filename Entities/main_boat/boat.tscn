@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bds1f0jr721g6"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.cs" id="1_8t0jm"]
+[ext_resource type="Script" path="res://Entities/main_boat/CharacterBody2D.cs" id="1_8t0jm"]
 [ext_resource type="Texture2D" uid="uid://cyeeitjrag736" path="res://Assets/boats/boat concept.png" id="2_h8q2j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jb78"]
