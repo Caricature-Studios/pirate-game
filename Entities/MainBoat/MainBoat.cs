@@ -4,14 +4,16 @@ using System;
 public partial class MainBoat : CharacterBody2D
 {
 	private NavigationAgent2D _agent;
-    private Sprite2D _portAttachment;
+    private Attachment _portAttachment;
+    private Attachment _starboardAttachment;
 
 	private float _speed = 300.0f;
 
 	public override void _Ready()
     {
         _agent = GetNode<NavigationAgent2D>("NavigationAgent2D");
-        _portAttachment = GetNode<Sprite2D>("PortAttachment");
+        _portAttachment = GetNode<Attachment>("PortAttachment");
+        _starboardAttachment = GetNode<Attachment>("StarboardAttachment");
 
     }
 

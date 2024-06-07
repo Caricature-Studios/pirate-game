@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjs2ski8rdkm1"]
+
+[ext_resource type="Texture2D" uid="uid://dksib6i2g42j7" path="res://Assets/Attachments/BaseAttachment/EmptyAttachment.png" id="1_v34u2"]
+[ext_resource type="Script" path="res://Entities/Attachments/BaseAttachment/Attachment.cs" id="2_xmues"]
+
+[node name="Attachment" type="Sprite2D"]
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("1_v34u2")
+script = ExtResource("2_xmues")

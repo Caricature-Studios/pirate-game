@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Attachment : Node2D
+public partial class Attachment : Sprite2D
 {
 	[Export]
 	private int range; // distance attachment operate at (in pixels)

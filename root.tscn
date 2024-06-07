@@ -26,3 +26,4 @@ expand_mode = 2
 [node name="test_map" parent="." instance=ExtResource("2_l22pw")]
 
 [node name="MainBoat" parent="." instance=ExtResource("3_scd41")]
+position = Vector2(76, 71)
