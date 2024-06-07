@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjs2ski8rdkm1"]
+
+[ext_resource type="Texture2D" uid="uid://dksib6i2g42j7" path="res://Assets/Attachments/BaseAttachment/EmptyAttachment.png" id="1_7abdk"]
+
+[node name="Attachment" type="Sprite2D"]
+texture = ExtResource("1_7abdk")

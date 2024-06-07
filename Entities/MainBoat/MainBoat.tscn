@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://de25fes7qnx8r"]
+[gd_scene load_steps=5 format=3 uid="uid://de25fes7qnx8r"]
 
 [ext_resource type="Script" path="res://Entities/MainBoat/MainBoat.cs" id="1_v5ma3"]
 [ext_resource type="Texture2D" uid="uid://2fcsy0i4rmbs" path="res://Assets/Boats/MainBoat/MainBoat.png" id="2_u0hsx"]
+[ext_resource type="PackedScene" uid="uid://cjs2ski8rdkm1" path="res://Entities/Attachments/Attachment/Attachment.tscn" id="3_ym2fe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jb78"]
 radius = 32.0
@@ -23,3 +24,7 @@ avoidance_enabled = true
 radius = 30.0
 avoidance_layers = 2
 avoidance_mask = 2
+
+[node name="PortAttachment" parent="." instance=ExtResource("3_ym2fe")]
+position = Vector2(-8, -24)
+scale = Vector2(0.24, 0.24)
