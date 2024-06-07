@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkqhjvqxgx7ap"]
 
-[ext_resource type="Texture2D" uid="uid://b2wbo778ktqi8" path="res://Assets/maps/water.png" id="1_hjkfl"]
+[ext_resource type="Texture2D" uid="uid://b2wbo778ktqi8" path="res://Assets/MapBuilders/water.png" id="1_7qni7"]
 [ext_resource type="PackedScene" uid="uid://6m8c76ulja7d" path="res://Levels/test_map.tscn" id="2_l22pw"]
-[ext_resource type="PackedScene" uid="uid://bds1f0jr721g6" path="res://Entities/main_boat/boat.tscn" id="3_scd41"]
+[ext_resource type="PackedScene" uid="uid://de25fes7qnx8r" path="res://Entities/MainBoat/MainBoat.tscn" id="3_scd41"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -20,9 +20,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_hjkfl")
+texture = ExtResource("1_7qni7")
 expand_mode = 2
 
 [node name="test_map" parent="." instance=ExtResource("2_l22pw")]
 
-[node name="boat" parent="." instance=ExtResource("3_scd41")]
+[node name="MainBoat" parent="." instance=ExtResource("3_scd41")]
+position = Vector2(76, 71)

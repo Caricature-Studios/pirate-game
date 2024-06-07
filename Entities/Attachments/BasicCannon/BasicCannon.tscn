@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtowrn7hvtadj"]
+
+[ext_resource type="Texture2D" uid="uid://c8sp4r0gmegqi" path="res://Assets/Attachments/BasicCannon/Cannon.png" id="1_8be7c"]
+[ext_resource type="Script" path="res://Entities/Attachments/BasicCannon/BasicCannon.cs" id="2_32i8g"]
+
+[node name="BasicCannon" type="Sprite2D"]
+scale = Vector2(3, 3)
+texture = ExtResource("1_8be7c")
+script = ExtResource("2_32i8g")

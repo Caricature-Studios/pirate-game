@@ -1,14 +1,20 @@
 using Godot;
 using System;
 
-public partial class CharacterBody2D : Godot.CharacterBody2D
+public partial class MainBoat : CharacterBody2D
 {
 	private NavigationAgent2D _agent;
+    private Attachment _portAttachment;
+    private Attachment _starboardAttachment;
+
 	private float _speed = 300.0f;
 
 	public override void _Ready()
     {
         _agent = GetNode<NavigationAgent2D>("NavigationAgent2D");
+        _portAttachment = GetNode<Attachment>("PortAttachment");
+        _starboardAttachment = GetNode<Attachment>("StarboardAttachment");
+
     }
 
     public override void _Input(InputEvent @event)
