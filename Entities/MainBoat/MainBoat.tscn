@@ -12,7 +12,7 @@ height = 130.0
 [node name="MainBoat" type="CharacterBody2D"]
 script = ExtResource("1_v5ma3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BoatBody" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_u0hsx")
 
