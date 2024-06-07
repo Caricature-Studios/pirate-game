@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bds1f0jr721g6"]
+[gd_scene load_steps=4 format=3 uid="uid://de25fes7qnx8r"]
 
-[ext_resource type="Script" path="res://Entities/main_boat/CharacterBody2D.cs" id="1_8t0jm"]
-[ext_resource type="Texture2D" uid="uid://cyeeitjrag736" path="res://Assets/boats/boat concept.png" id="2_h8q2j"]
+[ext_resource type="Script" path="res://Entities/MainBoat/MainBoat.cs" id="1_v5ma3"]
+[ext_resource type="Texture2D" uid="uid://2fcsy0i4rmbs" path="res://Assets/Boats/MainBoat/MainBoat.png" id="2_u0hsx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jb78"]
 radius = 32.0
 height = 130.0
 
-[node name="boat" type="CharacterBody2D"]
-script = ExtResource("1_8t0jm")
+[node name="MainBoat" type="CharacterBody2D"]
+script = ExtResource("1_v5ma3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_h8q2j")
+texture = ExtResource("2_u0hsx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

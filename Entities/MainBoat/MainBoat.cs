@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class CharacterBody2D : Godot.CharacterBody2D
+public partial class MainBoat : CharacterBody2D
 {
 	private NavigationAgent2D _agent;
 	private float _speed = 300.0f;
