@@ -26,15 +26,25 @@ public partial class MainBoat : CharacterBody2D
 
     public override void _Input(InputEvent @event)
     {
-        //if (
-        //    @event is InputEventMouseButton e &&
-        //    !e.Pressed &&
-        //    e.ButtonIndex == MouseButton.Right
-        //) {
-        //    var map = GetWorld2D().NavigationMap;
-        //    var p = NavigationServer2D.MapGetClosestPoint(map, e.Position);
-        //    _agent.TargetPosition = p;
-        //}
+
+        // handle selection toggle
+        if (@event.IsActionPressed("click"))
+        {
+            _isSelected = !_isSelected;
+            GD.Print("click happened");
+        }
+
+        // handle navigation click
+        if (
+            @event is InputEventMouseButton e &&
+            !e.Pressed &&
+            e.ButtonIndex == MouseButton.Right &&
+            _isSelected
+        ) {
+            var map = GetWorld2D().NavigationMap;
+            var p = NavigationServer2D.MapGetClosestPoint(map, e.Position);
+            _agent.TargetPosition = p;
+        }
     }
     public override void _PhysicsProcess(double delta)
     {
