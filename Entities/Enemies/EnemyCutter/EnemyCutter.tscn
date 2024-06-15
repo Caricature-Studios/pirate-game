@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://blim68lp4a7gb"]
+
+[ext_resource type="Script" path="res://Entities/Enemies/EnemyCutter/EnemyCutter.cs" id="1_thoys"]
+[ext_resource type="Texture2D" uid="uid://ddwmsbeqkdwmg" path="res://Assets/Boats/EnemyCutter/Boat.png" id="2_geaxq"]
+[ext_resource type="Script" path="res://Entities/Attachments/BaseAttachment/Attachment.cs" id="3_onjbt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mt5e4"]
+radius = 46.0
+height = 96.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_thoys")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -2)
+scale = Vector2(5.22, 5.04)
+texture = ExtResource("2_geaxq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("CapsuleShape2D_mt5e4")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="PortAttachment" type="Sprite2D" parent="."]
+script = ExtResource("3_onjbt")
+
+[node name="StarboardAttachment" type="Sprite2D" parent="."]
+script = ExtResource("3_onjbt")
+
+[node name="Area2D" type="Area2D" parent="."]
